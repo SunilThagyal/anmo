@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home');
+});
+Route::namespace('App\Http\Controllers')->name('anonymous.')->group(function(){
+    Route::any('anonymous/message','AnonymousController@sendMessage')->name('send.message');
 });
