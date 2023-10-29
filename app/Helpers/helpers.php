@@ -1,6 +1,8 @@
 <?php
 use GuzzleHttp\Client;
 use Jenssegers\Agent\Facades\Agent;
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\DomCrawler\Crawler;
 
 
 function userInformation(){
@@ -44,4 +46,22 @@ $user_data =[
 ];
 $user_data_json = serialize($user_data);
 return $user_data_json;
+}
+
+function getInstagramProfile($username = 'instagram'){
+            // Instagram profile URL
+            $profileUrl = "https://www.instagram.com/{$username}/";
+            // Fetch the HTML content
+            $response = Http::get($profileUrl);
+            $htmlContent = $response->body();
+
+            // Create a DOM Crawler from the HTML content
+            $crawler = new Crawler($htmlContent);
+
+            // Find the meta tag with property="og:image"
+            $metaTag = $crawler->filter('meta[property="og:image"]')->first();
+
+            // Get the content attribute of the meta tag
+            $profilePictureUrl = $metaTag->attr('content');
+            return $profilePictureUrl;
 }

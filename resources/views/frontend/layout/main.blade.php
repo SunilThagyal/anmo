@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/templatemo-space-dynamic.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     @stack('css')
     <!--
 
@@ -52,13 +53,15 @@ https://templatemo.com/tm-562-space-dynamic
     @include('frontend.layout.footer')
     {{-- footer --}}
     <!-- Scripts -->
-    @stack('js')
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/js/owl-carousel.js')}}"></script>
     <script src="{{asset('assets/js/animation.js')}}"></script>
     <script src="{{asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{asset('assets/js/templatemo-custom.js')}}"></script>
+    <script src="{{asset('assets/js/common.js')}}"></script>
+
+    @stack('js')
 
 </body>
 

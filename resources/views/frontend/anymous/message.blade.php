@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <div class="d-flex  align-items-center justify-content-start">
                             <div>
-                                <img src="https://media.macphun.com/img/uploads/customer/how-to/608/15542038745ca344e267fb80.28757312.jpg?q=85&w=1340" alt="User Image" class="user-image" >
+                                <img src="{{$profilePicture}}" alt="User Image" class="user-image" >
                             </div>
                             <div class="user-container">
                                 <h6 class="username">@svermaji</h6>
@@ -21,15 +21,27 @@
 
 
                     <div class="card-body">
+                        {{-- alert --}}
+                        {{-- <x-alert /> --}}
+                        @if (isset($alert))
+                        {!! $alert !!}
+                    @endif
+
+                        <div id="alert-container"></div>
+                        {{-- end alert --}}
                         <form id="contact" action="{{route('anonymous.send.message')}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="message">send me anonymous messages</label>
+                                <label for="message" class="msg-label">send me anonymous messages</label>
                                 <textarea name="message" class="form-control" id="message" required="" style="height: 152px;"></textarea>
                             </div>
                             <div class="form-group">
-                                <button type="submit" id="form-submit" class="btn btn-primary">Send Message</button>
+                                <button type="submit" id="form-submit" class="btn btn-primary">
+                                    Send Message
+                                    <span class="btn-spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                </button>
                             </div>
+                            <span class="badge badge-primary">Primary</span>
                         </form>
                     </div>
                 </div>
@@ -51,3 +63,6 @@
     </div>
 </div>
 @endsection
+@push('js')
+
+@endpush

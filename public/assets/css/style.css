@@ -1,0 +1,42 @@
+.alert-success {
+    background-color: #03a4ed;
+    color: white;
+    border: 0;
+    height: 24px;
+  }
+  .alert-danger {
+    background-color: #fe3f40;
+    color: white;
+    border: 0;
+    height: 24px;
+  }
+  .alert-success .fa-stack-2x {
+    color: #03a4ed;
+  }
+  .alert-success .fa-stack-1x {
+    color: #03a4ed;
+  }
+  .alert-success .btn-link {
+    color: white;
+    text-decoration: none;
+  }
+  .fa-check-circle{
+      color:aliceblue;
+  }
+.btn-close{
+    color:aliceblue;
+}
+label .msg-label{
+    margin-bottom: 4px;
+}
+/*  */
+.btn-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+}
+
+.btn-spinner.spinner-border {
+    border-width: 2px;
+}
+
