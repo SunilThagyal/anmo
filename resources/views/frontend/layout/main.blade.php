@@ -59,7 +59,8 @@ https://templatemo.com/tm-562-space-dynamic
     <script src="{{asset('assets/js/animation.js')}}"></script>
     <script src="{{asset('assets/js/imagesloaded.js')}}"></script>
     <script src="{{asset('assets/js/templatemo-custom.js')}}"></script>
-    <script src="{{asset('assets/js/common.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 
     @stack('js')
 

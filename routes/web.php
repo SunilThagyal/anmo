@@ -18,4 +18,7 @@ Route::get('/', function () {
 });
 Route::namespace('App\Http\Controllers')->name('anonymous.')->group(function(){
     Route::any('anonymous/message','AnonymousController@sendMessage')->name('send.message');
+    /*auth*/
+    Route::any('anonymous/signup','AnonymousAuthController@Signup')->name('signup');
+
 });

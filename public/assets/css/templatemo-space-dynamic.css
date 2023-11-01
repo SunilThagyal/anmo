@@ -1353,7 +1353,7 @@ form#contact {
   margin-left: 30px;
   position: relative;
   background-color: #fff;
-  padding: 60px 30px;
+  padding: 10px 30px;
   border-radius: 20px;
 }
 
@@ -1415,6 +1415,7 @@ form#contact button {
 form#contact button:hover {
   background-color: #fe3f40;
 }
+
 
 
 /*

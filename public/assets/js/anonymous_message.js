@@ -1,27 +1,16 @@
 
     $(document).ready(function () {
         $('#form-submit').on('click', function () {
-            // Prevent form submission for this example
-            // You should modify this part to handle your actual form submission
-
-            // Disable the button
-            $(this).prop('disabled', true).css('background-color','#fe3f40');
-
-            // Show the loading spinner
+            var button = $(this).prop('disabled', true).css('background-color','#fe3f40');
             $('.btn-spinner').removeClass('d-none');
-
-            // Simulate a delay (replace this with your actual form submission logic)
-            setTimeout(function () {
-                // Enable the button
-                $('#form-submit').prop('disabled', false);
-
-                // Hide the loading spinner
-                $('.btn-spinner').addClass('d-none');
-            }, 3000); // Replace 3000 with the actual delay in milliseconds
-            // ajax
             var form = $(this).closest('form');
             var url = form.attr('action');
             var message = form.find('#message').val()
+            // setTimeout(function () {
+            //     $('#form-submit').prop('disabled', false);
+
+            // }, 3000);
+
             $.ajax({
                 type: "POST",
                 url: url,
@@ -34,9 +23,16 @@
                         var html = $('#alert-container').html(response.alert);
                         html.find(".message").text(response.message);
                     }
+                    $('.btn-spinner').addClass('d-none');
+                    button.text('Message has been Sent Successfully')
+                    button.prop('disabled', true);
+                    form.find('#message').prop("readonly",true)
+
+                    $('.btn-spinner').prop("disable",'true')
+
                 },
                 error:function(error){
-
+                    button.prop('disabled', false);
                 }
             });
             /*ajax end*/

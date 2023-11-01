@@ -22,11 +22,7 @@
 
                     <div class="card-body">
                         {{-- alert --}}
-                        {{-- <x-alert /> --}}
-                        @if (isset($alert))
-                        {!! $alert !!}
-                    @endif
-
+                        <x-alert />
                         <div id="alert-container"></div>
                         {{-- end alert --}}
                         <form id="contact" action="{{route('anonymous.send.message')}}" method="post">
@@ -38,10 +34,12 @@
                             <div class="form-group">
                                 <button type="submit" id="form-submit" class="btn btn-primary">
                                     Send Message
-                                    <span class="btn-spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                 </button>
+                                <span class="btn-spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             </div>
-                            <span class="badge badge-primary">Primary</span>
+                            <div class="get-anonymous-btn main-red-button text-center">
+                                <a rel="nofollow" class="get-anonymous-link" href="{{route('anonymous.signup')}}">Get your Anonymous Link</a>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -64,5 +62,5 @@
 </div>
 @endsection
 @push('js')
-
+<script src="{{asset('assets/js/anonymous_message.js')}}"></script>
 @endpush

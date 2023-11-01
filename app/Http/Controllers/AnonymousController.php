@@ -16,24 +16,20 @@ class AnonymousController extends Controller
     public function sendMessage(Request $request){
         if($request->isMethod('get')){
             $profilePicture = getInstagramProfile('s_verma_ji');
+            $request->session()->forget('status');
             return view('frontend.anymous.message',compact('profilePicture'));
         }else{
-            // @dd('hello');
-            //
-            session(['status' => 'success', 'message' => 'done']);
-
             // Render the alert Blade view
             $alert = View::make('components.alert-component')->render();
             // Return the rendered alert as part of the response
+            $data =[
+                'user_info' => userInformation(),
+            ];
+            if(auth()->check()){
+                $data['user_id'] = auth()->id();
+            }
+            UserInfo::create($data);
             return response()->json(['alert' => $alert, "message" => "Message has been sent"]);
-            //
-           $data =[
-            'user_info' => userInformation(),
-           ];
-           if(auth()->check()){
-            $data['user_id'] = auth()->id();
-           }
-           UserInfo::create($data);
            return back()->with(['status' => 'success', 'message' => 'Message has been sent.']);
 
         }
