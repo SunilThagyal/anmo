@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::namespace('App\Http\Controllers')->name('anonymous.')->group(function(){
     Route::any('anonymous/signup','AnonymousAuthController@Signup')->name('signup');
 
 });
+
+Route::get('fake',[TestController::class,'dumyRecord']);
