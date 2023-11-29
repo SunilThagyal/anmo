@@ -25,3 +25,7 @@ Route::namespace('App\Http\Controllers')->name('anonymous.')->group(function(){
 });
 
 Route::get('fake',[TestController::class,'dumyRecord']);
+
+Route::get('/inbox', function () {
+    return view('frontend.anymous.inbox');
+});

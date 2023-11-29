@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/animated.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/modal.css')}}">
     @stack('css')
     <!--
 

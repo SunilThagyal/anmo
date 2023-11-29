@@ -46,7 +46,7 @@
                                 <div class="invalid-feedback d-block">
                                   </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-5">
                                 <button type="submit" id="form-submit" class="btn btn-primary">
                                     Signup
                                 </button>
