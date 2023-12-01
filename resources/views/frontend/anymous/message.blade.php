@@ -62,5 +62,5 @@
 </div>
 @endsection
 @push('js')
-<script src="{{asset('assets/js/anonymous_message.js')}}"></script>
+<script src="{{asset('assets/js-pages/anonymous_message.js')}}"></script>
 @endpush

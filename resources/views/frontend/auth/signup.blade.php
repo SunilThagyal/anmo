@@ -19,7 +19,7 @@
                         <x-alert />
                         <div id="alert-container"></div>
                         {{-- end alert --}}
-                        <form id="contact" class="needs-validation signup_form" action="" method="post" novalidate>
+                        <form id="contact" class="needs-validation signup_form" action="{{route('anonymous.signup')}}" method="post" novalidate>
                             @csrf
                             <div class="form-group text-left">
                                 <label for="message" class="msg-label">Full Name</label>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group text-left">
                                 <label for="message" class="msg-label">Confirm Password</label>
-                                <input name="" type="password" placeholder="Confirm your Password" class="form-control" id="cpassword" />
+                                <input  type="password" name="confirm_password" placeholder="Confirm your Password" class="form-control" id="cpassword" />
                                 <div class="invalid-feedback d-block">
                                   </div>
                             </div>
@@ -85,49 +85,5 @@
 </div>
 @endsection
 @push('js')
-<script>
-    $(document).ready(function() {
-        $('.signup_form').validate({
-            rules: {
-                full_name: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-                },
-                password: {
-                    required: true,
-                },
-                confirm_password: {
-                    required: true,
-                    equalTo: '#password',
-                }
-            },
-            messages: {
-                full_name: 'Please enter your full name',
-                email: {
-                    required: 'Please enter your email',
-                    email: 'Please enter a valid email address',
-                },
-                password: 'Please enter a password',
-                confirm_password: {
-                    required: 'Please confirm your password',
-                    equalTo: 'Passwords do not match',
-                }
-            },
-            errorPlacement: function(error, element) {
-                console.log(error);
-                error.appendTo(element.closest(".form-group").find(".invalid-feedback"));
-                element.closest(".form-group").find('input').addClass('is-invalid');
-            },
-            submitHandler: function(form) {
-                // Form is valid, and you can submit it.
-                form.submit();
-            }
-        });
-    });
-</script>
-
-
+<script src="{{asset('assets/js-pages/signup-page.js')}}"></script>
 @endpush

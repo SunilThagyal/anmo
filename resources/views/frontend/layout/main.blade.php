@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/modal.css')}}">
+    <script src="{{asset('assets/js-pages/common.js')}}"></script>
     @stack('css')
     <!--
 

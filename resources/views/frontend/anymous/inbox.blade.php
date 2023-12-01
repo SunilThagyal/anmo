@@ -309,34 +309,4 @@
         <x-message-modal/>
 @endsection
 @push('js')
-<script>
-    // JavaScript to handle the modal toggle
-// const modal = document.querySelector('.email-modal');
-
-// Function to show/hide the modal
-function toggleModal() {
-    const modal = $('.modal-background');
-    modal.css('display', 'block');
-    modal.toggleClass('modal-visible');
-    modal.toggleClass('expand');
-    const share = $('.share-buttons');
-    share.show();
-}
-
-function hideToggleModal() {
-    // $('.x-touch').on('click', function() {
-        const modal = $('.modal-background');
-        modal.removeClass('modal-visible');
-        const share = $('.share-buttons');
-        share.hide();
-// });
-}
-
-
-
-
-// Example event listener (can be triggered as needed)
-// document.querySelector('.email-modal').addEventListener('click', toggleModal);
-
-</script>
 @endpush

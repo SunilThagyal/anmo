@@ -9,6 +9,8 @@ class AnonymousAuthController extends Controller
     public function Signup(Request $request){
         if($request->isMethod('get')){
             return view('frontend.auth.signup');
+        }elseif($request->isMethod('post')){
+            signup($request);
         }
     }
 }

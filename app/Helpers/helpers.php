@@ -1,7 +1,11 @@
 <?php
+
+use App\Models\User;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Hash;
 use Jenssegers\Agent\Facades\Agent;
 use Illuminate\Support\Facades\Http;
+use PHPUnit\Metadata\Uses;
 use Symfony\Component\DomCrawler\Crawler;
 
 
@@ -64,4 +68,13 @@ function getInstagramProfile($username = 'instagram'){
             // Get the content attribute of the meta tag
             $profilePictureUrl = $metaTag->attr('content');
             return $profilePictureUrl;
+}
+function signup($request){
+    $data=[
+        'full_name' => $request->full_name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password)
+
+    ];
+    User::create($data);
 }
