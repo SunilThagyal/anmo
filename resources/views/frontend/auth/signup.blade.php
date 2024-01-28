@@ -19,7 +19,7 @@
                         <x-alert />
                         <div id="alert-container"></div>
                         {{-- end alert --}}
-                        <form id="contact" class="needs-validation signup_form" action="{{route('anonymous.signup')}}" method="post" novalidate>
+                        <form id="contact" class="needs-validation signup_form" method="POST" data-action="{{route('anonymous.signup')}}" novalidate>
                             @csrf
                             <div class="form-group text-left">
                                 <label for="message" class="msg-label">Full Name</label>
@@ -47,7 +47,7 @@
                                   </div>
                             </div>
                             <div class="form-group mt-5">
-                                <button type="submit" id="form-submit" class="btn btn-primary">
+                                <button type="submit"  id="form-submit" class="btn btn-primary">
                                     Signup
                                 </button>
                                 <span class="btn-spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
@@ -85,5 +85,10 @@
 </div>
 @endsection
 @push('js')
-<script src="{{asset('assets/js-pages/signup-page.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        const button = $('#form-submit');
+    })
+</script>
+    <script src="{{asset('assets/js-pages/signup-page.js')}}"></script>
 @endpush

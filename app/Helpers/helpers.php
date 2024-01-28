@@ -70,11 +70,16 @@ function getInstagramProfile($username = 'instagram'){
             return $profilePictureUrl;
 }
 function signup($request){
-    $data=[
-        'full_name' => $request->full_name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password)
+    try{
+        $data=[
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
 
-    ];
-    User::create($data);
+        ];
+        User::create($data);
+        return "User created successfully!";
+    }catch(\Exception $e){
+        return $e->getMessage();
+    }
 }

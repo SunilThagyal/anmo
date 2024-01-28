@@ -29,7 +29,7 @@ class AnonymousController extends Controller
                 $data['user_id'] = auth()->id();
             }
             UserInfo::create($data);
-            return response()->json(['alert' => $alert, "message" => "Message has been sent"]);
+            return response()->json(['status' => 'success','alert' => $alert, "message" => "Message has been sent"]);
            return back()->with(['status' => 'success', 'message' => 'Message has been sent.']);
 
         }

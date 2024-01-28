@@ -32,9 +32,27 @@ $(document).ready(function() {
             error.appendTo(element.closest(".form-group").find(".invalid-feedback"));
             element.closest(".form-group").find('input').addClass('is-invalid');
         },
+        success: function(label, element) {
+            $(element).removeClass('is-invalid');
+        },
         submitHandler: function(form) {
-            // Form is valid, and you can submit it.
-            form.submit();
+            var button = $(form).find('button[type="submit"]');
+            button.prop('disabled', true).css('background-color','#fe3f40');
+            $('.btn-spinner').removeClass('d-none');
+            var formData = $(form).serialize(); // Serialize form data
+            var url = $(form).attr('action'); // Get the form action attribute value
+            var successFunction = function(response){
+                console.log(response.status);
+                if(response.status == 'success'){
+                    if(response.alert){
+                        var html = $(form).closest('.card-body').find('#alert-container').html(response.alert);
+                        html.find(".message").text(response.message);
+                    }
+                    $('.btn-spinner').addClass('d-none');
+                }
+            }
+            makeAjaxRequest(url,'POST',formData, successFunction);
+            return false; // Prevent the default form submission
         }
     });
 });
